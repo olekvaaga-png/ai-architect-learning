@@ -29,7 +29,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px
 @media (max-width:960px){.shell{grid-template-columns:minmax(0,1fr);gap:12px}}
 /* rail */
 .rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px);align-self:start;max-height:calc(100vh - 24px);overflow:auto;display:flex;flex-direction:column;gap:10px;padding-right:4px}
-@media (max-width:960px){.rail{position:static;max-height:none}.rail nav{display:none}.rail.open nav{display:flex}}
+@media (max-width:960px){.rail{position:static;max-height:none}.js .rail nav{display:none}.js .rail.open nav{display:flex}}
 .brand{display:flex;flex-direction:column;gap:2px}
 .brand b{font-family:var(--cond);font-size:1.35rem;letter-spacing:-.005em;line-height:1.15}
 .brand span{font-size:.82rem;color:var(--muted)}
@@ -37,7 +37,7 @@ body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px
 .prog i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
 .progtxt{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
 .menu{display:none}
-@media (max-width:960px){.menu{display:inline-flex}}
+@media (max-width:960px){.js .menu{display:inline-flex}}
 .rail nav{display:flex;flex-direction:column;gap:2px}
 .rail .stg{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin:12px 0 3px;display:flex;align-items:center;gap:7px}
 .rail .stg i{width:9px;height:9px;border-radius:2px;display:inline-block}
@@ -272,7 +272,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
   <div class="prog" aria-hidden="true"><i id="progBar"></i></div>
   <div class="progtxt" id="progTxt">0 of 16 modules done</div>
   <button class="btn menu" id="menuBtn" aria-expanded="false" aria-controls="railNav">Show the course map</button>
-  <nav id="railNav" aria-label="Course map"></nav>
+  <nav id="railNav" aria-label="Course map"><a href="#start"><span class="n">··</span><span>Start here</span><span class="d"></span></a><div class="stg"><i style="background:var(--s0)"></i>Stage 0 · Orientation</div><a href="#m0" data-id="m0"><span class="n">0</span><span>Think like an architect</span><span class="d"></span></a><div class="stg"><i style="background:var(--s1)"></i>Stage 1 · Security foundations</div><a href="#m1" data-id="m1"><span class="n">1</span><span>Identity and delegated access</span><span class="d"></span></a><a href="#m2" data-id="m2"><span class="n">2</span><span>One write path</span><span class="d"></span></a><a href="#m3" data-id="m3"><span class="n">3</span><span>Proving security</span><span class="d"></span></a><div class="stg"><i style="background:var(--s2)"></i>Stage 2 · Cloud and architecture</div><a href="#m4" data-id="m4"><span class="n">4</span><span>Skeleton and slots</span><span class="d"></span></a><a href="#m5" data-id="m5"><span class="n">5</span><span>Task functions, apps and models</span><span class="d"></span></a><a href="#m6" data-id="m6"><span class="n">6</span><span>Runtime and state on Azure</span><span class="d"></span></a><a href="#m7" data-id="m7"><span class="n">7</span><span>Hybrid cloud and placement</span><span class="d"></span></a><div class="stg"><i style="background:var(--s3)"></i>Stage 3 · Applied AI and agents</div><a href="#m8" data-id="m8"><span class="n">8</span><span>Claims, not facts</span><span class="d"></span></a><a href="#m9" data-id="m9"><span class="n">9</span><span>Agents as identities</span><span class="d"></span></a><a href="#m10" data-id="m10"><span class="n">10</span><span>Token cost</span><span class="d"></span></a><a href="#m11" data-id="m11"><span class="n">11</span><span>Verified data and the semantic layer</span><span class="d"></span></a><div class="stg"><i style="background:var(--s4)"></i>Stage 4 · Where AI and security meet</div><a href="#m12" data-id="m12"><span class="n">12</span><span>The model boundary</span><span class="d"></span></a><a href="#m13" data-id="m13"><span class="n">13</span><span>Governing agents and change</span><span class="d"></span></a><a href="#m14" data-id="m14"><span class="n">14</span><span>Traceability and audit</span><span class="d"></span></a><div class="stg"><i style="background:var(--fg)"></i>Capstone</div><a href="#cap" data-id="cap"><span class="n">C</span><span>Capstone: material availability</span><span class="d"></span></a></nav>
 </aside>
 <main id="main">
 
@@ -328,7 +328,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M0 ================= -->
-<section class="mod" id="m0" data-title="Think like an architect" data-stage="0" hidden>
+<section class="mod" id="m0" data-title="Think like an architect" data-stage="0">
   <div class="eyebrow"><span class="sw" style="background:var(--s0)"></span>Stage 0 · Orientation · Module 0 · about 60 minutes</div>
   <h2>Think like an architect</h2>
   <p class="lead">An engineer is judged by whether the thing works. An architect is judged by whether the <em>next ten things</em> can be built on it without breaking it, by people who were not in the room. That changes what you optimise for: boundaries over features, decisions written down over decisions remembered, and proof over promise.</p>
@@ -383,7 +383,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M1 ================= -->
-<section class="mod" id="m1" data-title="Identity and delegated access" data-stage="1" hidden>
+<section class="mod" id="m1" data-title="Identity and delegated access" data-stage="1">
   <div class="eyebrow"><span class="sw" style="background:var(--s1)"></span>Stage 1 · Security foundations · Module 1 · about 90 minutes</div>
   <h2>Identity and delegated access: an agent is never more than its person</h2>
   <p class="lead">Every request is authenticated before anything else happens, and the roles in the person's token are the only roles the system uses. When an AI agent works for a person, it carries <em>that person's</em> rights, on that person's projects, and nothing more.</p>
@@ -422,7 +422,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M2 ================= -->
-<section class="mod" id="m2" data-title="One write path" data-stage="1" hidden>
+<section class="mod" id="m2" data-title="One write path" data-stage="1">
   <div class="eyebrow"><span class="sw" style="background:var(--s1)"></span>Stage 1 · Security foundations · Module 2 · about 75 minutes</div>
   <h2>One write path: the only way data changes</h2>
   <p class="lead">If data can change in five places, you have five places to secure, audit and keep consistent. A governed system has <em>one</em> service through which every change goes, for every app, person and agent. It checks the same things in the same order, inside one transaction, and only then writes a new version with an audit event.</p>
@@ -466,7 +466,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M3 ================= -->
-<section class="mod" id="m3" data-title="Proving security" data-stage="1" hidden>
+<section class="mod" id="m3" data-title="Proving security" data-stage="1">
   <div class="eyebrow"><span class="sw" style="background:var(--s1)"></span>Stage 1 · Security foundations · Module 3 · about 90 minutes</div>
   <h2>Proving security: tests that try to break the system</h2>
   <p class="lead">A gate that has never been seen to refuse is not evidence of anything. Security in an architect's sense is a set of <em>checks that run on every change</em>: a threat model, hostile requests, random sequences of real requests, faults injected in the middle of a step, and the gates themselves broken on purpose to see if anything notices.</p>
@@ -516,7 +516,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M4 ================= -->
-<section class="mod" id="m4" data-title="Skeleton and slots" data-stage="2" hidden>
+<section class="mod" id="m4" data-title="Skeleton and slots" data-stage="2">
   <div class="eyebrow"><span class="sw" style="background:var(--s2)"></span>Stage 2 · Cloud and architecture · Module 4 · about 75 minutes</div>
   <h2>A fixed skeleton with one slot per team</h2>
   <p class="lead">To scale to many teams, build what is the same for everyone <em>once</em>, and give each team one place to put what is unique to them. The shared part never names a team. The team's part never edits the shared part. And a machine checks both, on every change, so the rule does not depend on discipline.</p>
@@ -562,7 +562,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M5 ================= -->
-<section class="mod" id="m5" data-title="Task functions, apps and models" data-stage="2" hidden>
+<section class="mod" id="m5" data-title="Task functions, apps and models" data-stage="2">
   <div class="eyebrow"><span class="sw" style="background:var(--s2)"></span>Stage 2 · Cloud and architecture · Module 5 · about 60 minutes</div>
   <h2>Task functions, apps and models: three levels on the same path</h2>
   <p class="lead">Engineering work comes in three sizes. A <em>task function</em> is one job an engineer does by hand every week. An <em>app</em> combines several task functions into a result. A <em>model</em> is a whole process that orders apps and task functions into phases and gates. A well-designed system runs all three on the same path, so each level only adds its own layer.</p>
@@ -606,7 +606,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M6 ================= -->
-<section class="mod" id="m6" data-title="Runtime and state on Azure" data-stage="2" hidden>
+<section class="mod" id="m6" data-title="Runtime and state on Azure" data-stage="2">
   <div class="eyebrow"><span class="sw" style="background:var(--s2)"></span>Stage 2 · Cloud and architecture · Module 6 · about 90 minutes plus AZ-104/AZ-305 study</div>
   <h2>Runtime and state: built to run on many replicas</h2>
   <p class="lead">In production the steps stop calling each other in one process and talk through events. The gateway holds no state, so it can scale by adding replicas. All state lives in <em>one transactional store</em> every replica shares. Long waits (an expert who answers in three days) run as durable workflows that survive restarts. This module is where your Azure study meets the design.</p>
@@ -650,7 +650,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M7 ================= -->
-<section class="mod" id="m7" data-title="Hybrid cloud and placement" data-stage="2" hidden>
+<section class="mod" id="m7" data-title="Hybrid cloud and placement" data-stage="2">
   <div class="eyebrow"><span class="sw" style="background:var(--s2)"></span>Stage 2 · Cloud and architecture · Module 7 · about 75 minutes</div>
   <h2>Hybrid cloud and placement: data stays where its owner allows</h2>
   <p class="lead">Not all data may go to the cloud. Some must stay on infrastructure the company controls; some may only be reached from inside a customer's or operator's own network. A good design separates the <em>control plane</em> (policy, governance, audit), the <em>knowledge layer</em> (raw data, ontology, evidence) and <em>execution</em> (agents, workflows, skills) from the compute underneath, so the same code and rules run in every zone and work can move without a rebuild.</p>
@@ -693,7 +693,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M8 ================= -->
-<section class="mod" id="m8" data-title="Claims, not facts" data-stage="3" hidden>
+<section class="mod" id="m8" data-title="Claims, not facts" data-stage="3">
   <div class="eyebrow"><span class="sw" style="background:var(--s3)"></span>Stage 3 · Applied AI and agents · Module 8 · about 90 minutes</div>
   <h2>Claims, not facts: how AI output becomes authoritative</h2>
   <p class="lead">A language model reading a datasheet produces something that looks like data. It is not data yet. It is a <em>claim</em>: a proposed value with a source line, an extractor version and a confidence. It becomes authoritative only by passing deterministic gates and the approval of the right person, and it loses that status the moment its source is superseded.</p>
@@ -741,7 +741,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M9 ================= -->
-<section class="mod" id="m9" data-title="Agents as identities" data-stage="3" hidden>
+<section class="mod" id="m9" data-title="Agents as identities" data-stage="3">
   <div class="eyebrow"><span class="sw" style="background:var(--s3)"></span>Stage 3 · Applied AI and agents · Module 9 · about 90 minutes</div>
   <h2>Agents as identities: few agents, many versioned tools</h2>
   <p class="lead">Count agents by <em>security boundary</em>, not by capability. An agent is a runtime identity with a fixed pattern of what it may ever do. New capability is added as a versioned tool, not as a new agent. A deterministic chain orders the steps; agents do not hand off to each other, and no model decides what happens next.</p>
@@ -798,7 +798,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M10 ================= -->
-<section class="mod" id="m10" data-title="Token cost" data-stage="3" hidden>
+<section class="mod" id="m10" data-title="Token cost" data-stage="3">
   <div class="eyebrow"><span class="sw" style="background:var(--s3)"></span>Stage 3 · Applied AI and agents · Module 10 · about 60 minutes</div>
   <h2>Token cost: the model is a tool, called only where judgement is needed</h2>
   <p class="lead">The token cost of a multi-agent system comes from <em>the model orchestrating</em>, not from the number of agents. Every model turn rereads its system prompt, tool schemas and the case so far. A chain of 113 tool calls driven by models costs hundreds of thousands of input tokens; the same chain run by a workflow costs one extraction call.</p>
@@ -843,7 +843,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M11 ================= -->
-<section class="mod" id="m11" data-title="Verified data and the semantic layer" data-stage="3" hidden>
+<section class="mod" id="m11" data-title="Verified data and the semantic layer" data-stage="3">
   <div class="eyebrow"><span class="sw" style="background:var(--s3)"></span>Stage 3 · Applied AI and agents · Module 11 · about 90 minutes</div>
   <h2>Verified data: check against the system that owns it, then remember</h2>
   <p class="lead">Advanced apps built on unchecked data turn it into confident answers. So every tracked value carries a <em>verification state</em> worked out from its own history, every read declares a <em>purpose</em>, and data is trusted only after it has been compared with its <em>authoritative source system</em>. Only verified knowledge goes into the knowledge graph.</p>
@@ -894,7 +894,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M12 ================= -->
-<section class="mod" id="m12" data-title="The model boundary" data-stage="4" hidden>
+<section class="mod" id="m12" data-title="The model boundary" data-stage="4">
   <div class="eyebrow"><span class="sw" style="background:var(--s4)"></span>Stage 4 · Where AI and security meet · Module 12 · about 90 minutes</div>
   <h2>The model boundary: one checkpoint around every model call</h2>
   <p class="lead">A model call is the riskiest step in the system: it is where data can leave, where hidden instructions can steer behaviour, and where cost can run away. So every call passes <em>one boundary</em>, in a fixed order, before the model sees anything. And what the model returns is treated as an untrusted proposal, never as a fact or a command.</p>
@@ -937,7 +937,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M13 ================= -->
-<section class="mod" id="m13" data-title="Governing agents and change" data-stage="4" hidden>
+<section class="mod" id="m13" data-title="Governing agents and change" data-stage="4">
   <div class="eyebrow"><span class="sw" style="background:var(--s4)"></span>Stage 4 · Where AI and security meet · Module 13 · about 75 minutes</div>
   <h2>Governing agents and change: no single owner, four eyes, a ledger</h2>
   <p class="lead">The most dangerous change to an AI system is a change to the system itself: a prompt, a rule, a gate, an agent's tools. So no agent, profile, tool or skill has a single owner. Every change is classed by the files it touches, needs approval from people <em>other than its author</em>, and is written to a ledger outside the code host. Compliance is written as policy that CI checks and the write path enforces.</p>
@@ -982,7 +982,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= M14 ================= -->
-<section class="mod" id="m14" data-title="Traceability and audit" data-stage="4" hidden>
+<section class="mod" id="m14" data-title="Traceability and audit" data-stage="4">
   <div class="eyebrow"><span class="sw" style="background:var(--s4)"></span>Stage 4 · Where AI and security meet · Module 14 · about 60 minutes</div>
   <h2>Traceability: from a value to its source, and from a requirement to its proof</h2>
   <p class="lead">Traceability runs in two directions. <em>Data lineage</em>: any published value can be traced back to its source line, its reviewer and its policy decision, under one correlation id. <em>Design traceability</em>: every requirement points at the code that implements it and the check that proves it, with an honest status.</p>
@@ -1024,7 +1024,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 </section>
 
 <!-- ================= CAPSTONE ================= -->
-<section class="mod" id="cap" data-title="Capstone: material availability" data-stage="5" hidden>
+<section class="mod" id="cap" data-title="Capstone: material availability" data-stage="5">
   <div class="eyebrow"><span class="sw" style="background:var(--fg)"></span>Capstone · about 3 hours</div>
   <h2>Capstone: design material availability as a capability</h2>
   <p class="lead">Now design one capability yourself, end to end, using every module. Write your answers before you open the reference design. You will be judged on the same things an architecture review would judge: where authority sits, who may do what, how it fails, what it costs, and what you still need from other people.</p>
@@ -1070,7 +1070,7 @@ select{font:inherit;font-size:.9rem;padding:6px 8px;border-radius:7px;border:1px
 
 <script>
 (function(){
-"use strict";
+"use strict";document.documentElement.classList.add("js");
 var NS="http://www.w3.org/2000/svg";
 function $(s,r){return (r||document).querySelector(s)}
 function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
